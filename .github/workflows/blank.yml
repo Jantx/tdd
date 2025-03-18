@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar entorno
+        run: echo "Configurando entorno de compilación"
+
+      - name: Instalar dependencias
+        run: |
+          npm install  # Cambia según tu entorno (pip install, mvn install, etc.)
+
+      - name: Ejecutar pruebas
+        run: npm test  # Asegúrate de tener pruebas definidas
+
+      - name: Compilar proyecto
+        run: echo "Ejecutando compilación"
